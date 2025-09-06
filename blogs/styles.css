@@ -12,6 +12,36 @@ body {
     line-height: 1.6;
 }
 
+/* NoScript Warning */
+.noscript-warning {
+    background-color: #ffcc00;
+    color: #121212;
+    text-align: center;
+    padding: 15px;
+    font-size: 1em;
+}
+
+/* Mouse Trail Styles */
+.mouse-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.trail-particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.8) 20%, rgba(255, 255, 255, 0.4) 80%); /* Gold to white gradient for sparkle */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.3); /* Glowing effect */
+    opacity: 0.8;
+    transform: scale(1);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
 /* Introduction Section */
 .intro-section {
     text-align: center;
@@ -141,6 +171,11 @@ body {
     .blog-content h2 {
         font-size: 1.6em;
     }
+
+    .trail-particle {
+        width: 10px;
+        height: 10px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -158,6 +193,11 @@ body {
 
     .blog-content h2 {
         font-size: 1.4em;
+    }
+
+    .trail-particle {
+        width: 8px;
+        height: 8px;
     }
 }
 
@@ -184,5 +224,10 @@ body {
 
     .blog-content p {
         font-size: 0.9em;
+    }
+
+    .trail-particle {
+        width: 6px;
+        height: 6px;
     }
 }

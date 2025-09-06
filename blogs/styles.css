@@ -1,0 +1,188 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212; /* Dark theme for casino feel */
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Introduction Section */
+.intro-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Blue gradient for modern look */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.header-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.intro-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #ffcc00; /* Gold accent */
+    border: none;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    background-color: #ffd633;
+}
+
+/* Blog Content Section */
+.blog-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog-content h2 {
+    font-size: 1.8em;
+    color: #ffcc00;
+    margin-bottom: 15px;
+}
+
+.blog-content p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.blog-content a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.blog-content a:hover {
+    color: #ffd633;
+}
+
+/* Footer Section */
+.footer-section {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #333;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-section a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ffd633;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .intro-section h1 {
+        font-size: 2em;
+    }
+
+    .intro-section p {
+        font-size: 1em;
+    }
+
+    .header-image {
+        max-width: 600px;
+    }
+
+    .blog-content h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-section {
+        padding: 30px 10px;
+    }
+
+    .intro-section h1 {
+        font-size: 1.8em;
+    }
+
+    .blog-content {
+        padding: 15px;
+    }
+
+    .blog-content h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-section {
+        padding: 20px 10px;
+    }
+
+    .header-image {
+        max-width: 100%;
+    }
+
+    .intro-section h1 {
+        font-size: 1.5em;
+    }
+
+    .intro-section p {
+        font-size: 0.9em;
+    }
+
+    .blog-content h2 {
+        font-size: 1.2em;
+    }
+
+    .blog-content p {
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,259 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212; /* Dark theme for casino feel */
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Introduction Section */
+.intro-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Blue gradient for modern look */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.intro-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #ffcc00; /* Gold accent */
+    border: none;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    background-color: #ffd633;
+}
+
+/* Search Section */
+.search-section {
+    padding: 20px;
+    text-align: left;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+#search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-size: 1em;
+    transition: box-shadow 0.3s;
+}
+
+#search-bar:focus {
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* Blog Section */
+.blog-section {
+    padding: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+#blog-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.blog-item {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    animation: slideIn 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-item:hover {
+    transform: translateY(-5px);
+}
+
+.blog-item h2 {
+    font-size: 1.5em;
+    color: #ffcc00;
+}
+
+.blog-item p {
+    font-size: 1em;
+}
+
+.blog-item .updated-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    min-height: 40px; /* Fixed size for pagination */
+}
+
+.page-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #333;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.page-btn.active {
+    background-color: #ffcc00;
+    color: #121212;
+}
+
+.page-btn:hover {
+    background-color: #555;
+}
+
+.pagination-info {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+}
+
+.pagination-info h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+.pagination-info p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+/* Footer Section */
+.footer-section {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #333;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-section a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ffd633;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #blog-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #blog-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro-section h1 {
+        font-size: 2em;
+    }
+
+    .intro-section p {
+        font-size: 1em;
+    }
+
+    #search-bar {
+        max-width: 100%;
+    }
+
+    .blog-item h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    #blog-list {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-section {
+        padding: 30px 10px;
+    }
+
+    .search-section {
+        padding: 10px;
+    }
+
+    .blog-section {
+        padding: 10px;
+    }
+
+    .page-btn {
+        padding: 8px 12px;
+    }
+}

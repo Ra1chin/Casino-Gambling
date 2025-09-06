@@ -12,12 +12,50 @@ body {
     line-height: 1.6;
 }
 
+/* NoScript Warning */
+.noscript-warning {
+    background-color: #ffcc00;
+    color: #121212;
+    text-align: center;
+    padding: 15px;
+    font-size: 1em;
+}
+
+/* Mouse Trail Styles */
+.mouse-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.trail-particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.8) 20%, rgba(255, 255, 255, 0.4) 80%); /* Gold to white gradient for sparkle */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.3); /* Glowing effect */
+    opacity: 0.8;
+    transform: scale(1);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
 /* Introduction Section */
 .intro-section {
     text-align: center;
     padding: 50px 20px;
     background: linear-gradient(135deg, #1e3c72, #2a5298); /* Blue gradient for modern look */
     animation: fadeIn 1s ease-in-out;
+}
+
+.header-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 .intro-section h1 {
@@ -92,10 +130,20 @@ body {
     transition: transform 0.3s;
     text-decoration: none;
     color: inherit;
+    display: flex;
+    flex-direction: column;
 }
 
 .blog-item:hover {
     transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .blog-item h2 {
@@ -212,6 +260,15 @@ body {
     #blog-list {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .header-image {
+        max-width: 600px;
+    }
+
+    .trail-particle {
+        width: 10px;
+        height: 10px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -234,6 +291,15 @@ body {
     .blog-item h2 {
         font-size: 1.3em;
     }
+
+    .blog-image {
+        height: 100px;
+    }
+
+    .trail-particle {
+        width: 8px;
+        height: 8px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -243,6 +309,10 @@ body {
 
     .intro-section {
         padding: 30px 10px;
+    }
+
+    .header-image {
+        max-width: 100%;
     }
 
     .search-section {
@@ -255,5 +325,14 @@ body {
 
     .page-btn {
         padding: 8px 12px;
+    }
+
+    .blog-image {
+        height: 80px;
+    }
+
+    .trail-particle {
+        width: 6px;
+        height: 6px;
     }
 }

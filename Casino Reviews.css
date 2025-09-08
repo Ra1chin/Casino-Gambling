@@ -313,7 +313,10 @@ body {
     }
 
     .blog-item h2 {
-        font-size: 1.3em;
+        font-size: 1em;
+    }
+    .blog-item p {
+        font-size: 0.6em;
     }
 
     .blog-image {

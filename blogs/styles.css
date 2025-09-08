@@ -142,6 +142,18 @@ body {
     color: #ffd633;
 }
 
+.blog-content ul {
+    list-style: disc; /* Bullet style for unordered lists */
+    margin: 20px 0;
+    padding-left: 30px; /* Indent for bullets */
+}
+
+.blog-content li {
+    font-size: 1em;
+    margin-bottom: 10px; /* Spacing between list items */
+    color: #e0e0e0; /* Matches body text color */
+}
+
 /* Footer Section */
 .footer-section {
     text-align: center;
@@ -161,6 +173,8 @@ body {
 
 .footer-section ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-section li {
@@ -202,6 +216,10 @@ body {
         font-size: 1.6em;
     }
 
+    .blog-content ul {
+        padding-left: 25px; /* Slightly reduced indent for tablets */
+    }
+
     .trail-particle {
         width: 10px;
         height: 10px;
@@ -233,6 +251,10 @@ body {
 
     .blog-content h2 {
         font-size: 1.4em;
+    }
+
+    .blog-content ul {
+        padding-left: 20px; /* Further reduced indent for smaller tablets */
     }
 
     .trail-particle {
@@ -274,6 +296,14 @@ body {
 
     .blog-content p {
         font-size: 0.9em;
+    }
+
+    .blog-content ul {
+        padding-left: 15px; /* Minimal indent for mobile */
+    }
+
+    .blog-content li {
+        font-size: 0.9em; /* Slightly smaller text for mobile */
     }
 
     .trail-particle {

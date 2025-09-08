@@ -110,6 +110,13 @@ function createMouseTrail() {
         requestAnimationFrame(animateParticles);
     }
 
+    // Initialize touch position on touchstart
+    document.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        mouseX = touch.clientX;
+        mouseY = touch.clientY;
+    }, { passive: true });
+
     requestAnimationFrame(animateParticles);
 }
 

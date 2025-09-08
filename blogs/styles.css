@@ -46,7 +46,7 @@ body {
 .intro-section {
     text-align: center;
     padding: 50px 20px;
-    background-image: url('../images/Background.jpeg');
+    background-image: url('../images/Background.webp');
     background-size: cover;
     background-position: center;
     position: relative;

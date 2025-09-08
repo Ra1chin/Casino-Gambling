@@ -61,11 +61,10 @@ function createMouseTrail() {
 
     // Update mouse position for touch events
     document.addEventListener('touchmove', (e) => {
-        e.preventDefault(); // Prevent scrolling on touch
         const touch = e.touches[0];
         mouseX = touch.clientX;
         mouseY = touch.clientY;
-    }, { passive: false });
+    }, { passive: true });
 
     // Create and animate particles
     function animateParticles(timestamp) {
@@ -109,13 +108,6 @@ function createMouseTrail() {
 
         requestAnimationFrame(animateParticles);
     }
-
-    // Initialize touch position on touchstart
-    document.addEventListener('touchstart', (e) => {
-        const touch = e.touches[0];
-        mouseX = touch.clientX;
-        mouseY = touch.clientY;
-    }, { passive: true });
 
     requestAnimationFrame(animateParticles);
 }

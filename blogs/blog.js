@@ -6,62 +6,65 @@ function createMouseTrail() {
 
     let mouseX = 0, mouseY = 0;
     const particles = [];
-    const maxParticles = 12; // Slightly more particles for a richer effect
+    const maxParticles = 8; // Reduced for performance
     let lastParticleTime = 0;
-    const particleInterval = 40; // Faster spawning for smoother trail
+    const particleInterval = 50; // Slower spawning for efficiency
 
-    // Update mouse position for mouse events
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    // Update mouse position for touch events
+    // Update mouse position for mouse and touch events
+    const updatePosition = (x, y) => {
+        mouseX = x;
+        mouseY = y;
+    };
+    document.addEventListener('mousemove', (e) => updatePosition(e.clientX, e.clientY));
     document.addEventListener('touchmove', (e) => {
         const touch = e.touches[0];
-        mouseX = touch.clientX;
-        mouseY = touch.clientY;
+        updatePosition(touch.clientX, touch.clientY);
     }, { passive: true });
 
     // Create and animate particles
     function animateParticles(timestamp) {
-        if (timestamp - lastParticleTime > particleInterval) {
-            if (particles.length < maxParticles) {
-                const particle = document.createElement('div');
-                particle.className = 'trail-particle';
-                // Randomize size and slight offset for natural look
-                const size = Math.random() * 6 + 6; // Between 6px and 12px
-                const offsetX = (Math.random() - 0.5) * 10; // Slight random offset
-                const offsetY = (Math.random() - 0.5) * 10;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${mouseX + offsetX}px`;
-                particle.style.top = `${mouseY + offsetY}px`;
-                trailContainer.appendChild(particle);
-                particles.push({ element: particle, life: 800, velocityX: (Math.random() - 0.5) * 2, velocityY: (Math.random() - 0.5) * 2 }); // Shorter life for dynamic effect
-                lastParticleTime = timestamp;
-            }
+        if (timestamp - lastParticleTime > particleInterval && particles.length < maxParticles) {
+            const particle = document.createElement('div');
+            particle.className = 'trail-particle';
+            const size = Math.random() * 4 + 6; // Smaller range: 6px to 10px
+            const offsetX = (Math.random() - 0.5) * 8; // Reduced offset
+            const offsetY = (Math.random() - 0.5) * 8;
+            Object.assign(particle.style, {
+                width: `${size}px`,
+                height: `${size}px`,
+                left: `${mouseX + offsetX}px`,
+                top: `${mouseY + offsetY}px`
+            });
+            trailContainer.appendChild(particle);
+            particles.push({
+                element: particle,
+                life: 600, // Shorter life for faster cleanup
+                velocityX: (Math.random() - 0.5) * 1.5, // Reduced velocity
+                velocityY: (Math.random() - 0.5) * 1.5
+            });
+            lastParticleTime = timestamp;
         }
 
         // Update particles
-        particles.forEach((particle, index) => {
-            particle.life -= 16; // Approx 60fps frame time
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const particle = particles[i];
+            particle.life -= 16;
             if (particle.life <= 0) {
                 particle.element.remove();
-                particles.splice(index, 1);
-                return;
+                particles.splice(i, 1);
+                continue;
             }
-            // Update position with velocity for trailing effect
-            const currentLeft = parseFloat(particle.element.style.left);
-            const currentTop = parseFloat(particle.element.style.top);
-            particle.element.style.left = `${currentLeft + particle.velocityX}px`;
-            particle.element.style.top = `${currentTop + particle.velocityY}px`;
-            // Fade and pulse effect
-            const opacity = particle.life / 800;
-            const scale = 0.5 + (particle.life / 800) * 0.5; // Pulse between 0.5 and 1
-            particle.element.style.opacity = opacity;
-            particle.element.style.transform = `scale(${scale})`;
-        });
+            const left = parseFloat(particle.element.style.left) + particle.velocityX;
+            const top = parseFloat(particle.element.style.top) + particle.velocityY;
+            const opacity = particle.life / 600;
+            const scale = 0.5 + (particle.life / 600) * 0.5;
+            Object.assign(particle.element.style, {
+                left: `${left}px`,
+                top: `${top}px`,
+                opacity: opacity,
+                transform: `scale(${scale})`
+            });
+        }
 
         requestAnimationFrame(animateParticles);
     }

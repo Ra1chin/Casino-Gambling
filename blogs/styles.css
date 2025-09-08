@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
 .intro-section {
     text-align: center;
     padding: 50px 20px;
-    background-image: url('casino-header-bg.jpg');
+    background-image: url('/Background.jpeg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -89,20 +89,18 @@ body {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
 }
 
-.back-button {
-    padding: 10px 20px;
-    background-color: #ffcc00; /* Gold accent */
-    border: none;
-    color: #121212;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s, background-color 0.3s;
+.explore-icon {
+    width: 100%;
+    max-width: 200px; /* Reduced size for desktop */
+    max-height: 200px; /* Matching height to maintain aspect ratio */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s;
 }
 
-.back-button:hover {
-    transform: scale(1.05);
-    background-color: #ffd633;
+.explore-icon:hover {
+    transform: scale(1.05); /* Matches the back-button hover effect */
 }
 
 /* Blog Content Section */
@@ -110,6 +108,17 @@ body {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.blog-content-image {
+    width: 100%;
+    max-width: 1200px; /* Default size for desktop */
+    max-height: 600px; /* Matching height to maintain aspect ratio */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Center with bottom margin */
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .blog-content h2 {
@@ -197,6 +206,16 @@ body {
         width: 10px;
         height: 10px;
     }
+
+    .explore-icon {
+        max-width: 100px; /* Slightly smaller for tablets */
+        max-height: 100px; /* Matching height for tablets */
+    }
+
+    .blog-content-image {
+        max-width: 1024px; /* Slightly smaller for tablets */
+        max-height: 512px; /* Maintain aspect ratio (2:1) */
+    }
 }
 
 @media (max-width: 768px) {
@@ -219,6 +238,16 @@ body {
     .trail-particle {
         width: 8px;
         height: 8px;
+    }
+
+    .explore-icon {
+        max-width: 100px; /* Smaller for smaller tablets */
+        max-height: 100px; /* Matching height for smaller tablets */
+    }
+
+    .blog-content-image {
+        max-width: 768px; /* Smaller for smaller tablets */
+        max-height: 384px; /* Maintain aspect ratio (2:1) */
     }
 }
 
@@ -250,5 +279,15 @@ body {
     .trail-particle {
         width: 6px;
         height: 6px;
+    }
+
+    .explore-icon {
+        max-width: 100px; /* Smallest size for mobile */
+        max-height: 100px; /* Matching height for mobile */
+    }
+
+    .blog-content-image {
+        max-width: 480px; /* Smallest size for mobile */
+        max-height: 240px; /* Maintain aspect ratio (2:1) */
     }
 }

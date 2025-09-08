@@ -10,11 +10,18 @@ function createMouseTrail() {
     let lastParticleTime = 0;
     const particleInterval = 40; // Faster spawning for smoother trail
 
-    // Update mouse position
+    // Update mouse position for mouse events
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
+
+    // Update mouse position for touch events
+    document.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        mouseX = touch.clientX;
+        mouseY = touch.clientY;
+    }, { passive: true });
 
     // Create and animate particles
     function animateParticles(timestamp) {

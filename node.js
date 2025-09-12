@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 // Your actual Github domain
-const host = 'https://ra1chin.github.io/Casino-Gambling/';
+const host = 'https://ra1chin.github.io/Casino-Gambling';
 
 // List all blog slugs here (without the domain)
 const blogSlugs = [

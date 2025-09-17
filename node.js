@@ -10,6 +10,8 @@ const blogSlugs = [
   'the-rise-of-live-dealer-games',
   'how-do-casino-pro-gamers-manage-their-money-to-play-crash-game',
   'teen-patti-rummy-trends-2025',
+  'how-i-won-2000-7up-7down-dice-betting',
+  'abc-rummy-challenging-win-1000',
 ];
 
 // Generate URL list
